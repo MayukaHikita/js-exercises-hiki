@@ -15,6 +15,7 @@ function sumOfSquaredDifference(f, g) {
   return f
     .map((value, index) => (value - g[index]) ** 2)
     .reduce((x, y) => x + y, 0);
+    //前回の処理結果、今処理している配列の要素、現在のインデックス、元の配列、初期値
 }
 function sumOfEvensIsLargerThan42(array) {
   return array.filter((num) => num % 2 === 0).reduce((x, y) => x + y, 0) >= 42;

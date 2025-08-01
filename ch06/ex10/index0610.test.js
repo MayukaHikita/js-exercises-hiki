@@ -30,10 +30,10 @@ const obj1 = {
     arr: [arr1[0], arr1[1], arr1[2], num1, arr2[0], arr2[1]],
   };
   
-  const answer = { num1, num2,
+  const answer = { num1, num2,// 簡略記法
     foo:obj1.foo,
     bar:obj3.bar,
-     ...obj2,
+     ...obj2, // スプレッド演算子
      arr: [...arr1, num1, arr2[0], arr2[1]],
   };
 

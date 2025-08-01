@@ -28,7 +28,7 @@ export class DynamicSizeArray {
   }
 
   get(index) {
-    if (index < 0 || index >= this.len) {
+    if (index < 0 || index >= this.len) {//値が無いはずの要素が指定された時
       return undefined;
     }
     return this.array[index];
@@ -41,11 +41,12 @@ export class DynamicSizeArray {
       return;
     }
 
-    if (index >= this.array.length) {
-      this._resize(index + 1);
+    if (index >= this.array.length) {//指定されたインデックスが現在の配列の長さを超える場合.
+      this._resize(index + 1);//配列の長さ的にはindex+1になる必要がある
     }
     this.array[index] = value;
-    // 更新されたインデックスが現在の長さより大きい場合、長さを更新
+    // len を更新しないといけないと考えて以下を書いたが、今見たら間違っている？
+    // 更新されたインデックスが現在のlenより大きい場合、更新
     if (index >= this.len) {
       this.len = index + 1;
     }
@@ -55,7 +56,9 @@ export class DynamicSizeArray {
     return this.len;
   }
 
+  //  push の中では固定長の配列に要素を追加する空きが無い場合、倍サイズの固定長配列を作成
   push(value) {
+    // 問題文の内容
     if (this.len >= this.array.length) {
       this._resize(this.array.length * 2);
     }

@@ -5,7 +5,7 @@ export function getPropertyNames(obj) {
     while (currentObj) {
       let keys = Object.keys(currentObj); // 列挙可能な継承プロパティ
       inheritedKeys.push(...keys);
-      currentObj = Object.getPrototypeOf(currentObj);
+      currentObj = Object.getPrototypeOf(currentObj); // 次の親へ
     }
     return [...ownKeys,  ...inheritedKeys];
   }

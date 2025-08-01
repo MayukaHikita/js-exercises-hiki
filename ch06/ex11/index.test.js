@@ -3,14 +3,14 @@ import { PolarPoint } from './index.js';
 
 describe('PolarPoint クラスのテスト', () => {
   test('x, y の getter が正しく動作する', () => {
-    const point = new PolarPoint(5, Math.PI / 4);
-    expect(point.x).toBeCloseTo(5 * Math.cos(Math.PI / 4));
+    const point = new PolarPoint(5, Math.PI / 4); // r = 5, theta = π/4
+    expect(point.x).toBeCloseTo(5 * Math.cos(Math.PI / 4)); //小数の誤差を許容して比較
     expect(point.y).toBeCloseTo(5 * Math.sin(Math.PI / 4));
   });
 
   test('x の setter が r, theta を更新する', () => {
     const point = new PolarPoint(5, Math.PI / 4);
-    point.x = 3;
+    point.x = 3; //x=3を入れた時にrとthetaが更新される
     expect(point.r).toBeCloseTo(Math.sqrt(3 ** 2 + point.y ** 2));
     expect(point.theta).toBeCloseTo(Math.atan2(point.y, 3));
   });

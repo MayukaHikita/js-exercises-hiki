@@ -28,8 +28,9 @@ const highestTotalName = data
   }, { name: "", total: 0 }).name;
 // 5. 全体の geography の標準偏差
 const geographyScores = data.map(student => student.geography);
-const geographyMean = geographyScores.reduce((sum, score) => sum + score, 0) / geographyScores.length;
-const geographyVariance = geographyScores.reduce((sum, score) => sum + Math.pow(score - geographyMean, 2), 0) / (geographyScores.length - 1);
+const geographyMean = geographyScores.reduce((sum, score) => sum + score, 0) / geographyScores.length; //平均値を計算
+const geographyVariance = geographyScores.reduce((sum, score) => sum + Math.pow(score - geographyMean, 2), 0) / (geographyScores.length - 1);//各データから平均値を引いた値の二乗の合計をデータ数-1で割る
+// ↑一部のデータから求めるならデータ数-1 だが、今回は全体なのでデータ数で良かった？
 const geographyStdDev = Math.sqrt(geographyVariance);
 
 console.log("1. math の全員の合計点:", mathTotal); //530

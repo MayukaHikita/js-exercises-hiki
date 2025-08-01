@@ -1,7 +1,7 @@
 export function restrict(target, template) {
     for (let key of Object.keys(target)) {
-      if (!Object.prototype.hasOwnProperty.call(template, key)) {
-        delete target[key];
+      if (!Object.prototype.hasOwnProperty.call(template, key)) {//template が key というプロパティを「自分自身で」持っているかどうか
+        delete target[key];// 持っていなければ削除
       }
     }
     return target;
